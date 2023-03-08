@@ -3,7 +3,7 @@
 import { IoIosPeople } from "react-icons/io";
 // import { getFollowing } from "../services/api";
 
-const Results = ({ data, userFollowingData }) => {
+const Results = ({ data, userFollowingData, newUrlFetch }) => {
   const {
     name,
     login,
@@ -51,35 +51,36 @@ const Results = ({ data, userFollowingData }) => {
       <div className="following-cards flex flex-wrap my-6 gap-2 border-t-2 border-slate-900 py-2 ">
         {
           // userFollowingData.length &&
-          userFollowingData?.map((data, index) => {
+          newUrlFetch?.map((data, index) => {
             return (
               <div
                 key={index}
-                className="user-card bg-slate-400 flex justify-center w-96 m-auto  rounded-md p-3 text-black shadow-lg shadow-cyan-500/50"
+                className="user-card bg-slate-400 flex justify-center w-96 m-auto  rounded-md p-3 text-black shadow-lg shadow-yellow-700/50"
               >
                 <div className="info flex justify-center flex-col items-center p-2">
                   <img
                     width="100px"
-                    src={data?.avatar_url}
-                    alt={data?.name}
+                    src={data?.data?.avatar_url}
+                    alt={data?.data?.name}
                     className="rounded-full"
                   />
-                  <h2>{data?.name}</h2>
+                  <h2>{data?.data?.name}</h2>
                   <a
-                    href={data?.html_url}
+                    href={data?.data?.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline text-blue-900"
                   >
-                    {data?.login}
+                    {data?.data?.login}
                   </a>
 
-                  <p>{data?.bio}</p>
-                  {data?.company && <h6>{data?.company}</h6>}
+                  <p>{data?.data?.bio}</p>
+                  {data?.data?.company && <h6>{data?.data?.company}</h6>}
                   <div className="follow flex items-center gap-2">
                     <IoIosPeople />
                     <h5>
-                      {data?.followers} Followers - {data?.following} Following{" "}
+                      {data?.data?.followers} Followers -{" "}
+                      {data?.data?.following} Following{" "}
                     </h5>
                   </div>
                 </div>
