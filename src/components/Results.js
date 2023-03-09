@@ -3,7 +3,7 @@
 import { IoIosPeople } from "react-icons/io";
 // import { getFollowing } from "../services/api";
 
-const Results = ({ data, userFollowingData, newUrlFetch }) => {
+const Results = ({ data, newUrlFetch }) => {
   const {
     name,
     login,
@@ -48,7 +48,7 @@ const Results = ({ data, userFollowingData, newUrlFetch }) => {
         </div>
       </div>
       {/* followings data */}
-      <div className="following-cards flex flex-wrap my-6 gap-2 border-t-2 border-slate-900 py-2 ">
+      <div className="following-cards flex flex-wrap my-6 gap-4 border-t-2 border-slate-900 py-2 ">
         {
           // userFollowingData.length &&
           newUrlFetch?.map((data, index) => {
@@ -57,7 +57,7 @@ const Results = ({ data, userFollowingData, newUrlFetch }) => {
                 key={index}
                 className="user-card bg-slate-400 flex justify-center w-96 m-auto  rounded-md p-3 text-black shadow-lg shadow-yellow-700/50"
               >
-                <div className="info flex justify-center flex-col items-center p-2">
+                <div className="info flex justify-between flex-col gap-2 items-center p-2 h-72">
                   <img
                     width="100px"
                     src={data?.data?.avatar_url}
