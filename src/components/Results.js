@@ -57,7 +57,7 @@ const Results = ({ data, newUrlFetch }) => {
                 key={index}
                 className="user-card bg-slate-400 flex justify-center w-96 m-auto  rounded-md p-3 text-black shadow-lg shadow-yellow-700/50"
               >
-                <div className="info flex justify-between flex-col gap-2 items-center p-2 h-72">
+                <div className="info flex justify-between flex-col gap-2 items-center p-2 h-96">
                   <img
                     width="100px"
                     src={data?.data?.avatar_url}
