@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Search = ({ setUser, submitHandler, user }) => {
   return (
     <div className="my-2">
+      <h1 className="text-blue-900 text-xl mb-2 font-bold font-mono">
+        GitHub Users Page
+      </h1>
       <form onSubmit={submitHandler}>
         <input
           type="text"

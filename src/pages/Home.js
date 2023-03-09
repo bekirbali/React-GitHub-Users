@@ -23,7 +23,7 @@ const Home = () => {
     await axios(`https://api.github.com/users/${user}/following`).then(
       (responses) => {
         return responses.data.map((response) => {
-          return setNewUrl((oldUrl) => [response.url, ...oldUrl]);
+          return setNewUrl((oldUrl) => [...oldUrl, response.url]);
         });
       }
     );
@@ -40,14 +40,12 @@ const Home = () => {
     newUrl?.map(
       async (url) =>
         await axios(url).then((urlResponse) => {
-          console.log(urlResponse.data);
           return setNewUrlFetch((oldRes) => [...oldRes, urlResponse]);
         })
     );
   };
   useEffect(() => {
     fetchData();
-    console.log(newUrlFetch);
   }, [userData]);
 
   return (
